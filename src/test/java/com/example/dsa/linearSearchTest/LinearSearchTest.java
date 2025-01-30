@@ -12,7 +12,6 @@ public class LinearSearchTest {
     @ParameterizedTest
     @CsvSource( {"1,0","10,-1","-1,9"})
     public void searchTest (int toSearch,int expected){
-
         int index = linearSearch.search(inputs,toSearch);
         assertEquals(expected,index);
     }
