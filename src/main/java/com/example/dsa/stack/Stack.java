@@ -12,7 +12,7 @@ public class Stack {
     public Stack(int size) {
         maxSize = size;
         stack = new int[maxSize];
-        top = -1;  // Stack is initially empty
+        top = -1;
     }
     public void push(int  element){
         if (top < maxSize - 1) {
