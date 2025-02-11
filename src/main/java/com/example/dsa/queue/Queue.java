@@ -1,48 +1,37 @@
 package com.example.dsa.queue;
 
 public class Queue {
-    private int[] queueList;
-    private int head;
-    private int tail;
-    private int size;
-    private int capacity;
+    protected final int[] queueList;
+    protected int head;
+    protected int tail;
+    protected final int capacity;
 
     public Queue(int capacity) {
         this.capacity = capacity;
         this.queueList = new int[capacity];
         this.head = 0;
         this.tail = 0;
-        this.size = 0;
     }
 
     public int dequeue(){
-        if (isEmpty()) {
-            throw new IllegalStateException("Queue is empty");
-        }
-       int removed= queueList[head];
-       head++;
-       size--;
-       return  removed;
+        if (this.isEmpty()) throw new IllegalStateException("Queue is empty");
+       return  queueList[head++];
     }
     public void enqueue(int item){
-        if (isFull()) {
-            throw new IllegalStateException("Queue is full");
-        }
+        if (this.isFull()) throw new IllegalStateException("Queue is full");
         queueList[tail++] = item;
-        size++;
     }
     public int peek(){
        return queueList[head];
     }
     public int size(){
-        return size;
+        return this.tail - this.head;
     }
-
     public boolean isEmpty(){
-        return size ==0 ;
+        return this.size() ==0 ;
     }
     public boolean isFull(){
-        return size == capacity ;
+        return this.size() == capacity ;
     }
 
 }

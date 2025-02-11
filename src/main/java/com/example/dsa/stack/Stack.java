@@ -4,36 +4,31 @@ package com.example.dsa.stack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stack {
-    private int maxSize;
+public class Stack<T> {
+    private final  int maxSize;
     private int top;
-   private  int[] stack;
+    private final T[] stack;
 
     public Stack(int size) {
         maxSize = size;
-        stack = new int[maxSize];
+        stack = (T[]) new Object[maxSize];
         top = -1;
     }
-    public void push(int  element){
+    public void push(T element){
         if (top < maxSize - 1) {
             stack[++top] = element;
-            System.out.println("Pushed " + element);
         } else {
             System.out.println("Stack Overflow");
         }
     }
-    public int pop() {
-        if (top >= 0) {
-            int element = stack[top];
-            stack[top--] = 0;
-            System.out.println("Popped " + element);
-            return element;
-        } else {
-            System.out.println("Stack Underflow");
-            return -1;  // Stack is empty
-        }
+    public T pop() {
+        if (top < 0) return null;
+        T element = stack[top];
+        top--;
+        return element;
+
     }
-    public int peek(){
+    public T peek(){
        return stack[top];
     }
     public boolean isEmpty(){
