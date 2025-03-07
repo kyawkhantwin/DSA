@@ -1,6 +1,6 @@
-package com.example.dsa.BubbleSortTest;
+package com.example.dsa.sortingsTest;
 
-import com.example.dsa.bubbleSort.BubbleSort;
+import com.example.dsa.sort.BubbleSort;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

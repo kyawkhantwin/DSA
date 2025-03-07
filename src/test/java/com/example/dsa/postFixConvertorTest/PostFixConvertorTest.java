@@ -24,4 +24,13 @@ public class PostFixConvertorTest {
         assertEquals("ab*cd*+", convertor.toPostFix("a*b+c*d"));
         assertEquals("ab/cd*+", convertor.toPostFix("a/b+c*d"));
     }
+    @Test
+    public void testToPostFixWithParentheses() {
+        assertEquals("abc+*d*e-", convertor.toPostFix("a*(b+c)*d-e"));
+        assertEquals("ab+c*d/e-", convertor.toPostFix("(a+b)*c/d-e"));
+        assertEquals("abcd*+*e-f+", convertor.toPostFix("a*(b+c*d)-e+f"));
+        assertEquals("ab+cd-*e/", convertor.toPostFix("(a+b)*(c-d)/e"));
+        assertEquals("abc*d/+e-", convertor.toPostFix("a+(b*c/d)-e"));
+        assertEquals("ab+c*d/e+f-", convertor.toPostFix("(a+b)*c/d+e-f"));
+    }
 }

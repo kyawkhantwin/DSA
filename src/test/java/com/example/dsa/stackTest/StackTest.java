@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StackTest {
-    private final  Stack<Integer> stack = new Stack<>(5);
+    private final Stack<Integer> stack = new Stack<>(5);
 
     @Test
     public void pushTest() {

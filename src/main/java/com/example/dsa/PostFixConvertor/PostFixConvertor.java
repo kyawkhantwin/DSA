@@ -12,9 +12,13 @@ public class PostFixConvertor {
         this.precedences.put('-',1);
         this.precedences.put('*',2);
         this.precedences.put('/',2);
+
     }
 
     public boolean stackCharacterIsLargerOrEqual(char infixChr, char  stackChr){
+        if (!isOperator(infixChr) || !isOperator(stackChr)) {
+            return false;
+        }
         int infixPrecedencesValue = precedences.get(infixChr);
         int stackPrecedencesValue = precedences.get(stackChr);
 
@@ -27,12 +31,23 @@ public class PostFixConvertor {
             char ch = infix.charAt(i);
             if(this.isOperand(ch)){
                 postfix.append(ch);
-            } else if( this.isOperator(ch)){
+            } else if(ch == '('){
+                stack.push('(');
+            }else if(ch == ')'){
+                while (!stack.isEmpty() && stack.peek() != '('){
+
+                    postfix.append(stack.pop());
+                }
+                if(!stack.isEmpty()){
+                    stack.pop();
+                }
+            }
+            else if( this.isOperator(ch)){
                 if(stack.isEmpty()){
                     stack.push(ch);
                 } else {
                   while(!stack.isEmpty() && stackCharacterIsLargerOrEqual(ch,stack.peek())){
-                      postfix.append(stack.pop());
+                          postfix.append(stack.pop());
                   }
                   stack.push(ch);
                 }
@@ -52,5 +67,6 @@ public class PostFixConvertor {
     boolean isOperator(char ch) {
         return "+-*/".indexOf(ch) >= 0;
     }
+
 
 }

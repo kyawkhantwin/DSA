@@ -1,8 +1,8 @@
-package com.example.dsa.insertionSortTest;
+package com.example.dsa.sortingsTest;
 
 import static org.junit.Assert.*;
 
-import com.example.dsa.insertionSort.InsertionSort;
+import com.example.dsa.sort.InsertionSort;
 import org.junit.Test;
 
 public class InsertionSortTest {

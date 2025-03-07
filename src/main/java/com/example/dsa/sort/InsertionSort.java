@@ -1,4 +1,4 @@
-package com.example.dsa.insertionSort;
+package com.example.dsa.sort;
 
 public class InsertionSort {
     int[] array;

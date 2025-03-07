@@ -1,4 +1,4 @@
-package com.example.dsa.bubbleSort;
+package com.example.dsa.sort;
 
 public class BubbleSort{
     int[] array;

@@ -1,4 +1,4 @@
-package com.example.dsa.selectionSort;
+package com.example.dsa.sort;
 
 public class SelectionSort {
     int[] array;
